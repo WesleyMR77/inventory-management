@@ -35,6 +35,7 @@ public class FrmCadUser extends javax.swing.JFrame {
         jCheckBoxShowPassword = new javax.swing.JCheckBox();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        lblCadastrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +78,14 @@ public class FrmCadUser extends javax.swing.JFrame {
 
         txtName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        lblCadastrar.setForeground(new java.awt.Color(0, 51, 255));
+        lblCadastrar.setText("Já possuo conta");
+        lblCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCadastrarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,8 +116,10 @@ public class FrmCadUser extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jCheckBoxShowPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnCadastrar))))))
+                                    .addGap(21, 21, 21)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnCadastrar)
+                                        .addComponent(lblCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -116,7 +127,7 @@ public class FrmCadUser extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(txtNomeAplicacao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,7 +147,9 @@ public class FrmCadUser extends javax.swing.JFrame {
                 .addComponent(jCheckBoxShowPassword)
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrar)
-                .addGap(25, 25, 25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCadastrar)
+                .addContainerGap())
         );
 
         pack();
@@ -152,6 +165,8 @@ public class FrmCadUser extends javax.swing.JFrame {
         String senhaConfir = String.valueOf(txtPasswordConfir.getPassword());
         
         userControll.actionUserCadControll(user, senhaConfir);
+        new FrmLoginUser().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void jCheckBoxShowPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxShowPasswordMouseClicked
@@ -170,6 +185,11 @@ public class FrmCadUser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jCheckBoxShowPasswordActionPerformed
 
+    private void lblCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastrarMouseClicked
+        new FrmLoginUser().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblCadastrarMouseClicked
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -181,6 +201,7 @@ public class FrmCadUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JCheckBox jCheckBoxShowPassword;
+    private javax.swing.JLabel lblCadastrar;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblSenha1;

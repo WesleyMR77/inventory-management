@@ -2,6 +2,7 @@ package inventory.management.controller;
 
 import inventory.management.dao.DaoUserImp;
 import inventory.management.model.User;
+import inventory.management.view.FrmMenu;
 import javax.swing.JOptionPane;
 
 public class UserController {
@@ -16,5 +17,15 @@ public class UserController {
         else{
             JOptionPane.showMessageDialog(null, "Por favor, preencha os campos corretamente");
         }
+    }
+    
+    public void actionAutenticacitonUser(User user){
+        boolean autentication = daoUser.autenticUser(user);
+        if(autentication){
+            new FrmMenu().setVisible(true); 
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario ou senha incorreto");
+        }
+    
     }
 }
